@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password
-  acts_at_authentic
+  attr_accessible :username, :email, :password, :password_confirmation
+  acts_as_authentic
 end

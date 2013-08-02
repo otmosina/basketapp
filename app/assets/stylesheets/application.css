@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+
+#container {
+  margin: auto 300px;	
+}
+
+#user_nav {
+  float: right;
+  font-size: 12px
+}
+
+#flash {
+  border: 1px, Solid;
+}
