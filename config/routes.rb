@@ -1,6 +1,10 @@
 Basketapp::Application.routes.draw do
   
-  resources :goods
+  resources :goods do
+    member do 
+      post :buy
+    end  
+  end  
 
   match 'login' => 'user_sessions#new', :as => 'login'
   match 'logout' => 'user_sessions#destroy', :as => 'logout'
@@ -9,7 +13,11 @@ Basketapp::Application.routes.draw do
 
   root :to => 'index#index'
 
-  resources :users
+  resources :users do 
+    member do 
+      post :add_some_money
+    end 
+  end  
 
   #get "index/index"
 

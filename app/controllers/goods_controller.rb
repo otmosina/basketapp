@@ -38,4 +38,17 @@ class GoodsController < ApplicationController
     @good.destroy
     redirect_to goods_url, :notice => "Successfully destroyed good."
   end
+
+
+  def buy
+    @good = Good.find(params[:id])
+    if @good.count > 0
+      @good.count = @good.count - 1 
+      @good.save
+      render :json => "Buy"
+    else
+      render :json => "Count is null"
+    end  
+  end  
+
 end

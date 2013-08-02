@@ -1,3 +1,4 @@
-<h1>Index#index</h1>
-<p>Find me in app/views/index/index.html.erb</p>
-Первая страница
+<h1>Первая страница</h1>
+<% if current_user %>
+  <%= button_to "Положить 1000 рублей на балансе", add_some_money_user_path(:current),  :remote => false %>
+<% end %>

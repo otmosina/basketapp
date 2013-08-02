@@ -24,4 +24,15 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+  def add_some_money
+    @user = current_user
+    @user.update_attribute(:balance, 1000)
+
+
+    redirect_to root_url
+    #render :json => "ok"
+  end  
+
+
 end
