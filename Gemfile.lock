@@ -29,6 +29,9 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    authlogic (3.3.0)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -51,9 +54,13 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.23)
+    mocha (0.14.0)
+      metaclass (~> 0.0.1)
     multi_json (1.7.7)
     mysql2 (0.3.13)
+    nifty-generators (0.4.6)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -108,10 +115,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic
   coffee-rails (~> 3.2.1)
   execjs
   jquery-rails
+  mocha
   mysql2
+  nifty-generators
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   therubyracer

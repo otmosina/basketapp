@@ -1,4 +1,10 @@
 Basketapp::Application.routes.draw do
+  resources :users
+
+  get "index/index"
+
+  get "index/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

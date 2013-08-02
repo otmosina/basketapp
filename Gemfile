@@ -12,6 +12,11 @@ gem 'execjs'
 
 gem 'therubyracer'
 
+gem 'authlogic'
+gem "nifty-generators"
+
+gem 'mocha'
+
 
 
 # Gems used only for assets and not required
@@ -42,3 +47,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test
