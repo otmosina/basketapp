@@ -1,0 +1,17 @@
+<%= form_for @good do |f| %>
+  <%#= f.error_messages %>
+  <%= errors_for(@good, "Opps, unable to add new user").html_safe %>  
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :count %><br />
+    <%= f.number_field :count %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

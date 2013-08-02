@@ -1,0 +1,9 @@
+one:
+  name: MyString
+  count: 1
+  price: 1
+
+two:
+  name: MyString
+  count: 1
+  price: 1

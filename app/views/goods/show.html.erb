@@ -1,0 +1,20 @@
+<% title "Good" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @good.name %>
+</p>
+<p>
+  <strong>Count:</strong>
+  <%= @good.count %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @good.price %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_good_path(@good) %> |
+  <%= link_to "Destroy", @good, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", goods_path %>
+</p>
