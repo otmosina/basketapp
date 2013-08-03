@@ -1,6 +1,6 @@
 class CreateCorf < ActiveRecord::Migration
   def up
-  	create_table :corfs do |t|
+  	create_table :baskets do |t|
   	  t.integer :user_id
   	  t.integer :good_id	
 
@@ -9,6 +9,6 @@ class CreateCorf < ActiveRecord::Migration
   end
 
   def down
-  	drop_table :corfs 
+  	drop_table :baskets 
   end
 end

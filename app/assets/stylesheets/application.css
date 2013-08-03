@@ -22,6 +22,11 @@
   font-size: 12px
 }
 
+#menu_nav {
+  float: left;
+  font-size: 12px
+}
+
 #flash {
   border: 1px, Solid;
 }

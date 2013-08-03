@@ -17,6 +17,8 @@ gem "nifty-generators"
 
 gem 'mocha'
 
+gem 'debugger'
+
 
 
 # Gems used only for assets and not required

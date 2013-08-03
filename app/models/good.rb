@@ -1,4 +1,5 @@
 class Good < ActiveRecord::Base
   attr_accessible :name, :count, :price
-  has_many :users, :through => :corfs
+  has_many :baskets#, :class_name => "Corf"
+  has_many :users, :through => :baskets
 end

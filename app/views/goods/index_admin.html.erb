@@ -11,10 +11,14 @@
       <td><%= good.name %></td>
       <td><%= good.count %></td>
       <td><%= good.price %></td>
-      <td><%= button_to "Положить в корзину", buy_good_path(good.id), :remote => true %></td>
+      <td><%= link_to "Show", good %></td>
+      <td><%= link_to "Edit", edit_good_path(good) %></td>
+      <td><%= link_to "Destroy", good, :confirm => 'Are you sure?', :method => :delete %></td>
+
   
 
     </tr>
   <% end %>
 </table>
 
+<p><%= link_to "New Good", new_good_path %></p>
