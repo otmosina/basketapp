@@ -4,7 +4,9 @@ Basketapp::Application.routes.draw do
     member do 
       post :buy
     end  
-  end  
+  end   
+
+  
 
   scope '/admin' do
     match '/goods' => "goods#index_admin"
@@ -23,6 +25,8 @@ Basketapp::Application.routes.draw do
       post :add_some_money
     end 
   end  
+
+  match 'basket' => 'baskets#current_basket'
 
   #get "index/index"
 

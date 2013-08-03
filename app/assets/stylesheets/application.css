@@ -30,3 +30,7 @@
 #flash {
   border: 1px, Solid;
 }
+
+#basket {
+	display: inline;
+}

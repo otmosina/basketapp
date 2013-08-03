@@ -19,7 +19,8 @@ class GoodsController < ApplicationController
   end
 
   def index
-    @goods = Good.all
+    #@goods = Good.all
+    @goods = Good.in_stock
   end
 
   def show

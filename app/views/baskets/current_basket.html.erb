@@ -1,0 +1,18 @@
+Zdec korzina
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Count</th>
+    <th>Price</th>
+  </tr>
+  <% for good in @goods %>
+    <tr>
+      <td><%= good.name %></td>
+      <td><%#= good.count %></td>
+      <td><%= good.price %></td>
+  
+
+    </tr>
+  <% end %>
+</table>

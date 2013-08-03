@@ -21,6 +21,7 @@
     <div id="user_nav">
       <% if current_user %>
         <%= current_user.username %> | <%= current_user.balance %> | 
+        <div id="basket"><%= link_to "Корзина", basket_path %> </div> |
   		<%= link_to "Edit profile", edit_user_path(:current) %>  | 
         <%= link_to "Logout", logout_path %> 
       <% else %>
