@@ -31,17 +31,11 @@ class User < ActiveRecord::Base
   end    
 
 
-  def add_good(good_var, count_add=1)
-
-    if good_var.count >= count_add 
-      self.goods << good_var unless self.user_basket_goods.include?(good_var)      
-      basket_item = self.baskets.where(:good_id => good_var.id , :buy => false).first
-      basket_item.update_attribute(:count, basket_item.count+count_add)
-      return true
-    else
-      return false
-    end  
-
+  def add_good(good_var)
+    self.goods << good_var unless self.user_basket_goods.include?(good_var)      
+    basket_item = self.baskets.where(:good_id => good_var.id , :buy => false).first
+    basket_item.update_attribute(:count, basket_item.count+1)
+    return true 
   end	
   
 
@@ -50,7 +44,6 @@ class User < ActiveRecord::Base
     if self.balance >= self.all_price_in_basket
       self.user_basket.each do |item|
         item.update_attribute(:buy, true)
-        item.good.update_attribute(:count, item.good.count - item.count)
       end  
       return true
     else

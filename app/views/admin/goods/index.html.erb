@@ -1,0 +1,22 @@
+<% title "Goods" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <% for good in @goods %>
+    <tr>
+      <td><%= good.name %></td>
+      <td><%= good.price %></td>
+      <td><%= link_to "Show", admin_good_path(good) %></td>
+      <td><%= link_to "Edit", edit_admin_good_path(good) %></td>
+      <td><%= link_to "Destroy", admin_good_path(good), :confirm => 'Are you sure?', :method => :delete %></td>
+
+  
+
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Good", new_admin_good_path %></p>

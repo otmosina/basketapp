@@ -3,5 +3,5 @@ class Good < ActiveRecord::Base
   has_many :baskets#, :class_name => "Corf"
   has_many :users, :through => :baskets
 
-  scope :in_stock, where('count != 0')
+  #scope :in_stock, where('count != 0')
 end

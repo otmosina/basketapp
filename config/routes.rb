@@ -1,17 +1,22 @@
 Basketapp::Application.routes.draw do
   
-  resources :goods, :only => :index do
-    member do 
-      post :buy
-    end  
-  end   
+ 
 
   
 
-  scope '/admin' do
-    match '/goods' => "goods#index_admin", :as => 'admin_goods'
-    resources :goods, :except => :index
-  end  
+  #scope '/admin' do
+  match '/goods' => "admin/goods#index_for_user"
+  match '/goods/buy' => "admin/goods#buy", :method => :post
+  namespace 'admin' do
+    resources :goods#, :except => :index
+    #match '/goods' => "goods#index_admin", :as => 'admin_goods_index'
+  end 
+
+  #resources :goods, :only => :index_for_user do
+ #  member do 
+  #    post :buy
+  #  end  
+  #end     
 
   match 'login' => 'user_sessions#new', :as => 'login'
   match 'logout' => 'user_sessions#destroy', :as => 'logout'
