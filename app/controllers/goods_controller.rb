@@ -2,7 +2,7 @@ class GoodsController < ApplicationController
 
 
   protect_from_forgery
-  before_filter :authenticate, :except => :index
+  before_filter :authenticate, :except => [:index, :buy]
 
 
 
@@ -62,9 +62,12 @@ class GoodsController < ApplicationController
 
   def buy
     @good = Good.find(params[:id])
+    count_good = params[:count_good]
     if @good.count > 0
-      @good.count = @good.count - 1 
-      @good.save
+      unless current_user.goods.include? @good 
+        current_user.goods << @good
+      end   
+      Basket.where(:user_id => current_user.id, :good_id => @good.id).first.update_attribute(:count, count_good)
       render :json => "Buy"
     else
       render :json => "Count is null"

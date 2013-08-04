@@ -3,6 +3,7 @@ class Basket < ActiveRecord::Base
   belongs_to :user
   belongs_to :good
 
+=begin
   validate :count_goods
   validate :balance_users
 
@@ -22,7 +23,8 @@ class Basket < ActiveRecord::Base
   end
 
   def change_balance_users
-	self.user.update_attribute(:balance,self.user.balance - self.good.price)
+	  self.user.update_attribute(:balance,self.user.balance - self.good.price)
   end	
+=end
 
 end	

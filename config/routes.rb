@@ -9,7 +9,7 @@ Basketapp::Application.routes.draw do
   
 
   scope '/admin' do
-    match '/goods' => "goods#index_admin"
+    match '/goods' => "goods#index_admin", :as => 'admin_goods'
     resources :goods, :except => :index
   end  
 
@@ -27,6 +27,8 @@ Basketapp::Application.routes.draw do
   end  
 
   match 'basket' => 'baskets#current_basket'
+
+  match 'basket/delete_all_goods' => 'baskets#delete_all_goods', :via => :post, :as => 'delete_all_goods'   
 
   #get "index/index"
 

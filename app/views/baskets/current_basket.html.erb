@@ -1,18 +1,22 @@
-Zdec korzina
+<h1>Корзина покупателя</h1>
 
-<table>
+<table> 
   <tr>
     <th>Name</th>
     <th>Count</th>
     <th>Price</th>
   </tr>
-  <% for good in @goods %>
+  <% for basket in @basket %>
     <tr>
-      <td><%= good.name %></td>
-      <td><%#= good.count %></td>
-      <td><%= good.price %></td>
+      <td><%= basket.good.name %></td>
+      <td><%= basket.count %></td>
+      <td><%= basket.good.price %></td>
   
 
     </tr>
   <% end %>
 </table>
+
+
+<br/><br/><br/>
+<%= button_to 'Удалить все товары из корзины', delete_all_goods_path %>
