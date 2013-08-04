@@ -1,20 +1,18 @@
 <script>
-$(function(){
-  $('.buy_action').click(function(){
-    id_good = $(this).attr('id');  
-    count_good = $(this).parent().parent().find('.select_count_class').first().val();//.val();
-    $.ajax({
-      type: 'POST',
-      url: '/goods/'+id_good+'/buy?count_good='+count_good,
-      complete: function(msg) {
-        alert('Товар добавлен в корзину');
-      }
-    })
-    //alert("Покупается кол-во = "+  $('#select_count_id').val());
-  })
-})
-
-
+//$(function(){
+//  $('.buy_action').click(function(){
+//    id_good = $(this).attr('id');  
+//    count_good = $(this).parent().parent().find('.select_count_class').first().val();//.val();
+//    $.ajax({
+//      type: 'POST',
+//      url: '/goods/'+id_good+'/buy?count_good='+count_good,
+//      complete: function(msg) {
+//        alert('Товар добавлен в корзину');
+//      }
+//    })
+//    //alert("Покупается кол-во = "+  $('#select_count_id').val());
+//  })
+//})
 </script>
 
 <% title "Goods" %>
@@ -22,13 +20,11 @@ $(function(){
 <table>
   <tr>
     <th>Name</th>
-    <th>Count</th>
     <th>Price</th>
   </tr>
   <% for good in @goods %>
     <tr>
       <td><%= good.name %></td>
-      <td><%= good.count %></td>
       <td><%= good.price %></td>
       <td><%= number_field_tag :select_count, nil, :in => 1..good.count, :value => 1, :class => "select_count_class" %></td>
       <td><%= button_tag "Положить в корзину",  :remote => true, :class => "buy_action", :id => "#{good.id}" %></td>

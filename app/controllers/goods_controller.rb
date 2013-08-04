@@ -64,11 +64,16 @@ class GoodsController < ApplicationController
     @good = Good.find(params[:id])
     count_good = params[:count_good]
     if @good.count > 0
-      unless current_user.goods.include? @good 
-        current_user.goods << @good
-      end   
-      Basket.where(:user_id => current_user.id, :good_id => @good.id).first.update_attribute(:count, count_good)
-      render :json => "Buy"
+      if current_user.add_good(@good, count_good.to_i)
+        render :json => "Buy"
+      else
+        render :json => "Something is wrong"
+      end  
+      #unless current_user.goods.include? @good 
+      #  current_user.goods << @good
+      #end   
+      #Basket.where(:user_id => current_user.id, :good_id => @good.id).first.update_attribute(:count, count_good)
+      
     else
       render :json => "Count is null"
     end  

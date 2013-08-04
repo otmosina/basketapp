@@ -1,7 +1,7 @@
 class BasketsController < ApplicationController
   def current_basket
   	@basket = Basket.where(:user_id => current_user.id)
-  	@goods = current_user.goods
+  	@goods = current_user.user_basket
   end	
 
   def delete_all_goods
