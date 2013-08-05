@@ -2,7 +2,7 @@ class Admin::GoodsController < Admin::ApplicationController#ApplicationControlle
 
 
   protect_from_forgery
-  before_filter :authenticate, :except => [:index, :buy]
+  before_filter :authenticate, :except => [:buy, :index_for_user]
 
 
 
@@ -46,7 +46,7 @@ class Admin::GoodsController < Admin::ApplicationController#ApplicationControlle
   def update
     @good = Good.find(params[:id])
     if @good.update_attributes(params[:good])
-      redirect_to @good, :notice  => "Successfully updated good."
+      redirect_to admin_goods_path(@good), :notice  => "Successfully updated good."
     else
       render :action => 'edit'
     end
@@ -55,7 +55,7 @@ class Admin::GoodsController < Admin::ApplicationController#ApplicationControlle
   def destroy
     @good = Good.find(params[:id])
     @good.destroy
-    redirect_to goods_url, :notice => "Successfully destroyed good."
+    redirect_to admin_goods_path, :notice => "Successfully destroyed good."
   end
 
 

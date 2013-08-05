@@ -1,4 +1,7 @@
 <h1>Корзина покупателя</h1>
+<div id="basket_submenu">
+  <%= link_to "Неоплаченные", basket_path %> | <%= link_to "Купленные", basket_buy_path %>  
+</div>  
 
 <table> 
   <tr>
@@ -17,6 +20,11 @@
   <% end %>
 </table>
 
+<br/><br/><br/>
+<hr/>
+Итоговая сумма: <%= current_user.all_price_in_basket %>
 
 <br/><br/><br/>
-<%= button_to 'Удалить все товары из корзины', delete_all_goods_path %>
+<div>
+<%= button_to 'Удалить все товары из корзины', delete_all_goods_path %> <%= button_to 'Оплатить', buy_all_users_path, :remote => true %>
+</div>

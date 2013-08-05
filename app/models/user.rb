@@ -41,10 +41,12 @@ class User < ActiveRecord::Base
 
 
   def buy_all
-    if self.balance >= self.all_price_in_basket
+    sum_buy = self.all_price_in_basket
+    if self.balance >= sum_buy
       self.user_basket.each do |item|
         item.update_attribute(:buy, true)
       end  
+      self.update_attribute(:balance, self.balance - sum_buy)
       return true
     else
       return false
@@ -56,11 +58,4 @@ class User < ActiveRecord::Base
     self.baskets.where(:buy => type_buy)
   end	
 
-
-
 end
-
-
-
-#Покупатель
-#Товары на складе

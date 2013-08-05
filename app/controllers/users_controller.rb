@@ -34,5 +34,10 @@ class UsersController < ApplicationController
     #render :json => "ok"
   end  
 
+  def buy_all
+    current_user.buy_all
+    redirect_to basket_path
+  end  
+
 
 end

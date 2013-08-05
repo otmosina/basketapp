@@ -6,11 +6,14 @@ Basketapp::Application.routes.draw do
 
   #scope '/admin' do
   match '/goods' => "admin/goods#index_for_user"
-  match '/goods/buy' => "admin/goods#buy", :method => :post
+  post '/goods/buy/:id' => "admin/goods#buy", :as => 'buy_good'#, :method => :post
+
   namespace 'admin' do
-    resources :goods#, :except => :index
-    #match '/goods' => "goods#index_admin", :as => 'admin_goods_index'
-  end 
+    resources :goods do
+ 
+    end
+  end
+
 
   #resources :goods, :only => :index_for_user do
  #  member do 
@@ -29,9 +32,13 @@ Basketapp::Application.routes.draw do
     member do 
       post :add_some_money
     end 
+    collection do 
+      post :buy_all
+    end  
   end  
 
   match 'basket' => 'baskets#current_basket'
+  match 'basket_buy' => 'baskets#current_basket_buy'
 
   match 'basket/delete_all_goods' => 'baskets#delete_all_goods', :via => :post, :as => 'delete_all_goods'   
 
